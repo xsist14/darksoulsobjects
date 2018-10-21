@@ -1,12 +1,16 @@
 <?php
 
+	require ("player.php");
 
-	function sayHello() {
-		$hello = "Hello World";
-		echo $hello;
-	}
-
-	sayHello();
-
+	$jason = new Player();
+	
+	echo "here is the health points before initializing: " . $jason->healthPoints;
+	
+	$jason->healthPoints = 100;
+	
+	echo "<br />";
+	echo "health before damage: " . $jason->healthPoints;
+	echo "<br />";
+	echo "health after damage: " . $jason->setRandomDamage();
 
 ?>

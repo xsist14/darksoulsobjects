@@ -16,20 +16,27 @@
 
 	$items = 
 	[
-		"Estus Flask" => 20,
+		"Estus Flask" => true,
+		"Sword" => true,
+		"Torch" => true,
+		"Souls" => 1,
 	];
 
+	echo $items[$key];
+	
+	$playerHasItem = "Estus Flask";
 	foreach ($items as $item => $value) 
 	{
-		if ($item == "Estus Flask") 
+		if ($item == $playerHasItem && $value == true) 
 		{
-			echo "You have an estus flask!";
-		} else 
+			echo "You have the {$item}!<br />";
+		} 
+		elseif ($item == $playerHasItem && $value == false)
 		{
-			echo "You don't have an estus flask";
+			echo "You don't have the {$item}<br />";
 		}
 	}
-
+	
 
 
 

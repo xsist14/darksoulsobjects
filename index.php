@@ -12,8 +12,7 @@
 	// echo "health before damage: " . $jason->healthPoints;
 	// echo "<br />";
 	// echo "health after damage: " . $jason->setRandomDamage();
-
-
+/////////////////
 	$items = 
 	[
 		"Estus Flask" => true,
@@ -22,21 +21,40 @@
 		"Souls" => 1,
 	];
 
-	echo $items[$key];
-	
-	$playerHasItem = "Estus Flask";
-	foreach ($items as $item => $value) 
-	{
-		if ($item == $playerHasItem && $value == true) 
+	function removeEstus($items) {
+		$items["Estus Flask"] = false;
+
+		return $items;
+	}
+
+	function giveEstus($items) {
+		$items["Estus Flask"] = true;
+
+		return $items;
+	}
+
+
+
+		// $playerHasItem = "Estus Flask";
+	function printKey($playerHasItem, $items) {
+		foreach ($items as $item => $value) 
 		{
-			echo "You have the {$item}!<br />";
-		} 
-		elseif ($item == $playerHasItem && $value == false)
-		{
-			echo "You don't have the {$item}<br />";
+			if ($item == $playerHasItem && $value == true) 
+			{
+				echo "You have the {$playerHasItem}!<br />";
+			} 
+			elseif ($item == $playerHasItem && $value == false)
+			{
+				echo "You don't have the {$playerHasItem}<br />";
+			}
 		}
 	}
-	
+
+	$items = removeEstus($items);
+	$items = giveEstus($items);
+
+	printKey("Estus Flask", $items);
+	// checkForEstus();
 
 
 
